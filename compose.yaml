@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  jellyplex-watched:
+    image: luigi311/jellyplex-watched:latest
+    container_name: jellyplex-watched
+    restart: unless-stopped
+
+    environment:
+      - TZ=Europe/Berlin
+
+      # Plex
+      - PLEX_BASEURL=http://IP-ADDRESS:32400
+      - PLEX_TOKEN=XXXXXXXXXXXXXXXXXXXXX
+      - PLEX_USERS=Username
+
+      # Jellyfin
+      - JELLYFIN_BASEURL=http://IP-ADDRESS:8096
+      - JELLYFIN_TOKEN=XXXXXXXXXXXXXXXXXXXXX
+      - JELLYFIN_USERS=Username
+
+      # Sync
+      - SYNC_FROM_PLEX_TO_JELLYFIN=True
+      - SYNC_FROM_JELLYFIN_TO_PLEX=False
+
+      # Debug
+      - DRYRUN=False
+      - DEBUG_LEVEL=debug
