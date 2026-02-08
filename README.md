@@ -14,7 +14,7 @@
 <hr>
 <h2>Requirements</h2>
 <ul>
-  <li>Synology NAS with <strong>Docker package</strong></li>
+  <li>Synology NAS with <strong>Container Manager</strong></li>
   <li>Plex Server with <strong>token</strong></li>
   <li>Jellyfin Server with user access</li>
 </ul>
@@ -22,14 +22,19 @@
 <h2>Installation on Synology</h2>
 <h3>1. Create Docker Container</h3>
 <ol>
-  <li>Open Docker on your Synology NAS</li>
+  <li>Open Container Manger on your Synology NAS</li>
   <li>Go to <strong>Registry</strong> and search for:<br><pre><code>luigi311/jellyplex-watched</code></pre></li>
   <li>Download the latest image</li>
-  <li>Go to <strong>Image → Run</strong> to create a new container</li>
+  <li>Go to <strong>Project → create</strong> to create a new container project</li>
 </ol>
 
-<h3>2. Configure Container</h3>
-<p><strong>Advanced Settings → Environment Variables:</strong></p>
+<h3>2. Configure Container project</h3>
+<ol>
+  <li>Project name: First, set a project name such as <strong>"JellyPlexWatched"</strong>.</li>
+  <li>Path: Create or set a folder path, for example <strong>/docker/Jellyplex</strong>.</li>
+  <li>Source: Select <strong>docker-compose.yml</strong> and either upload the compose file or create a new <strong>docker-compose.yml</strong> and copy &amp; paste the compose content.</li>
+  <li>Adjust the variable values according to your setup and preferences.</li>
+</ol>
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
@@ -108,7 +113,7 @@
 
 <h3>5. Start Container</h3>
 <p>After configuration → <strong>Apply → Start</strong><br>
-Logs can be viewed in the Docker UI under <strong>Logs</strong></p>
+Logs can be viewed in the Container Manager UI under <strong>Container/JellyPlexWatched/Logs</strong></p>
 
 <hr>
 <h2>Troubleshooting</h2>
